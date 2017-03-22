@@ -1,0 +1,54 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Tahoma', sans-serif;
+    background-color: #EEEEEE;
+}
+
+h1 {
+    background-color: #2277FF;
+    font-style: italic;
+    margin-top: 0px;
+    padding: 10px;
+    width:100%;
+    color: #EEEEEE;
+}
+
+#canvasID {
+    margin-left: 30px;
+    float: left;
+    width: 60%;
+    background-color: #33AAFF;
+    border-left:10px solid black;
+    border-bottom: 10px solid black;
+}
+
+.date {
+    float: right;
+    margin-right: 150px;
+    width:25%;
+    margin-top: 10px
+}
+
+#selectDiv {
+    margin-left: 20px;
+    float:left;
+    width: 35%;
+    display: block;
+}
+
+#inputs {
+    float:right;
+    width: 50%;
+    display: block;
+}
+
+button {
+    text-align: center;
+    margin-left: 100px;
+    padding: 2px 30px 2px 30px;
+    background-color: #2277FF;
+    font-weight: bold;
+}

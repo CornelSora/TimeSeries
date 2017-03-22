@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Proiect serii de timp</title>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- de salvat in lib -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+
+<body>
+  <h1>Serii de timp</h1>
+
+  <div id="canvasID">
+    <canvas id="canvas" width="820" height="550" style="border:1px solid black"></canvas>
+  </div>
+
+  <div class="date">
+    <fieldset>
+      <legend>Alegeti datele pentru histograma: </legend>
+      <div id="selectDiv">
+        <label for="selectTara">Tara: </label>
+        <select id="selectTara">
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Argentina" checked="true">Argentina</option>
+                  <option value="Romania">Romania</option>
+                </select>
+      </div>
+      <div id="inputs">
+        <label for="">Caracteristica: </label> <br/>
+        <input type="radio" name="caracteristica" value="exports" checked="checked">exports<br/>
+        <input type="radio" name="caracteristica" value="armsImports">armsImports<br/>
+        <input type="radio" name="caracteristica" value="agricultureLand">agricultureLand
+      </div>
+      <button id="btnHistograma">Afisare</button>
+    </fieldset>
+  </div>
+
+  <div class="date">
+    <fieldset>
+      <legend>Alegeti datele pentru Bubble Chart: </legend>
+      <div id="selectDiv">
+        <label for="SelectareAn">An: </label>
+        <input type="text" id="SelectareAn" size="1" value="1961" />-1995
+        <input type="button" id="btnAdd" value="+">
+      </div>
+      <div id="inputs">
+        <label for="">Caracteristica: </label> <br/>
+        <input type="radio" name="caracteristica1" value="exports" checked="checked">exports<br>
+        <input type="radio" name="caracteristica2" value="armsImports" checked="checked">armsImports<br>
+        <input type="radio" name="caracteristica3" value="agricultureLand" checked="checked">agricultureLand
+      </div>
+      <button id="btnBubbleChart">Afisare</button> <br/>
+      <button id="btnAnimatie">Animate</button>
+    </fieldset>
+  </div>
+
+
+  <div class="date">
+    <fieldset>
+      <legend>Alegeti datele pentru tabel: </legend>
+      <div id="selectDiv">
+        <label for="SelectareAn">Perioada: </label> <br/>
+        <input type="text" id="anInceput" size="1" value="1961" />-<input type="text" id="anFinal" size="1" value="1995" />
+      </div>
+      <div id="inputs">
+        <label for="">Caracteristica: </label> <br/>
+        <input type="radio" name="caracteristica12" value="exports" checked="checked">exports<br>
+        <input type="radio" name="caracteristica22" value="armsImports" checked="checked">armsImports<br>
+        <input type="radio" name="caracteristica32" value="agricultureLand" checked="checked">agricultureLand
+      </div>
+      <button id="btnTabel">Afisare</button> <br/>
+    </fieldset>
+  </div>
+  <center>
+    <div id="tabelDate" class="container">
+
+    </div>
+  </center>
+</body>
+
+</html>

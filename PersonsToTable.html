@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <script type="text/javascript">
+        $(function() {
+            
+            var tabelPersoane = function(vector) {
+                let tabel = $("<table></table>")
+                tabel.append("<caption>Tabel persoane</caption>")
+                let thead = $("<thead></thead>")
+                    thead.append("<th>Nume</th>")
+                    .append("<th>Varsta</th>")
+                    .append("<th>Telefon</th>")
+                    .append("</thead>")
+                thead.appendTo(tabel)
+                
+                var tbody = $("<tbody></tbody>")
+                for (var i = 0; i < vector.length; i++) {
+                    let row = $("<tr></tr>")
+                        row.append("<td>" + vector[i].Nume + "</td>")
+                        .append("<td>" + vector[i].Varsta + "</td>")
+                        .append("<td>" + vector[i].Telefon + "</td>")
+                    tbody.append(row)
+                }
+               
+               tbody.appendTo(tabel)
+                
+                var tfoot = $("<tfoot></tfoot>")
+                tfoot.append("<tr><td colspan=\"3\">Numarul de persoane este de: " + vector.length + "</td></tr>")
+                tfoot.appendTo(tabel)
+                
+                tabel.appendTo("body");
+            }
+            
+            var vector = [
+                    {
+                        "Nume" : "Persoana 1",
+                        "Varsta" : "22",
+                        "Telefon" : "0746545"
+                    },
+                    {
+                        "Nume" : "Persoana 2",
+                        "Varsta" : "20",
+                        "Telefon" : "0746545"
+                    },
+                    {
+                        "Nume" : "Persoana 3",
+                        "Varsta" : "23",
+                        "Telefon" : "0746545"
+                    },
+                    {
+                        "Nume" : "Persoana 4",
+                        "Varsta" : "24",
+                        "Telefon" : "0746545"
+                    }
+                ]
+            tabelPersoane(vector)
+        })
+        
+        
+        
+    </script>
+</html>

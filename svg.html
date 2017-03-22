@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+    <style type="text/css">
+        svg rect {
+            stroke: grey;
+            stroke-width: 4;
+            fill: none;
+        }
+        
+        svg circle {
+            stroke: blue, stroke-width: 3;
+            fill: grey;
+        }
+        
+        svg {
+            border-style: solid;
+        }
+    </style>
+    <svg width="600px" height="400px">
+            <rect id="rect2" x="0" y="0" width="1" height="1"
+              style="fill:none; stroke:grey; display:none" />
+        </svg>
+    <script>
+        $(function() {
+            var mx = 0,
+                my = 0,
+                x1 = 0,
+                y1 = 0;
+            var svg = $("svg")[0];
+
+            $("svg").on("mousemove", (e) => {
+                mx = e.pageX - svg.getBoundingClientRect().left;
+                my = e.pageY - svg.getBoundingClientRect().top;
+                $("#rect2").attr(getC(x1, y1, mx, my));
+            })
+
+            $("svg").on("mousedown", () => {
+                x1 = mx;
+                y1 = my;
+                $("#rect2").show().attr(getC(mx, my, mx, my));
+            })
+
+            $("svg").on("mouseup", () => {
+                var r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                $(r).attr(getC(x1, y1, mx, my)).appendTo("svg");
+                $("#rect2").hide();
+                $("#rect2").hide();
+            })
+
+            function getC(x1, y1, x2, y2) {
+                return {
+                    x: Math.min(x1, x2),
+                    y: Math.min(y1, y2),
+                    width: Math.abs(x1 - x2),
+                    height: Math.abs(y1 - y2)
+                };
+            }
+        })
+    </script>
+</body>
+
+</html>

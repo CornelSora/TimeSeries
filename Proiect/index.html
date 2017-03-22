@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Proiect serii de timp</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="scripts/histograma.js"></script>
+        <script type="text/javascript" src="scripts/bubbleChart.js"></script>
+    </head>
+    <body>
+        <h1>Serii de timp</h1>
+        
+        <div id="canvasID">
+            <canvas id="canvas" width="800" height="520"></canvas>
+        </div>
+        
+        <div class="date">
+          <fieldset>
+            <legend>Alegeti datele pentru histograma: </legend>
+            <div id="selectDiv">
+                <label for="selectTara">Tara: </label>
+                <select id="selectTara">
+                  <option value="tara1">Afghanistan</option>
+                  <option value="tara2">Argentina</option>
+                  <option value="tara3">Romania</option>
+                </select>
+            </div>
+            <div id="inputs">
+              <label for="">Caracteristica: </label> <br/>
+              <input type="radio" name="caracteristica" value="caract1"> Caract1<br>
+              <input type="radio" name="caracteristica" value="caract2"> Caract2<br>
+              <input type="radio" name="caracteristica" value="caract3"> Caract3
+            </div>
+            <button id="btnHistograma">Afisare</button> 
+          </fieldset> 
+        </div>
+        
+        <div class="date">
+          <fieldset>
+            <legend>Alegeti datele pentru Bubble Chart: </legend>
+            <div id="selectDiv">
+                <label for="selectTara">Tara: </label>
+                <select id="selectTara">
+                  <option value="tara1">Tara1</option>
+                  <option value="tara2">Tara2</option>
+                  <option value="tara3">Tara3</option>
+                </select>
+            </div>
+            <div id="inputs">
+              <label for="">Caracteristica: </label> <br/>
+              <input type="radio" name="caracteristica1" value="caract1" checked="checked"> Caract1<br>
+              <input type="radio" name="caracteristica2" value="caract2" checked="checked"> Caract2<br>
+              <input type="radio" name="caracteristica3" value="caract3" checked="checked"> Caract3
+            </div>
+            <button id="btnBubbleChart">Afisare</button> 
+          </fieldset> 
+        </div>
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="jquery-latest.js"></script>
+    </head>
+    <body>
+        <canvas id="test" width="800px" height="600px" style="border: 1px solid black"></canvas>
+        <script>
+            var canvas = $("#test")[0];
+            var context = canvas.getContext("2d");
+            var mousePos = {};
+            $(canvas).on("click", (e) => {
+                mousePos.X = e.pageX - canvas.getBoundingClientRect().left;
+                mousePos.Y = e.pageY - canvas.getBoundingClientRect().top;
+                var l = 60;
+                context.rect(mousePos.X - (l / 2), mousePos.Y - (l / 2), l, l);
+                context.fillStyle = "red";
+                context.fill();
+                console.log(mousePos.X + " " + mousePos.Y); 
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Imagine</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+    <center>
+        <canvas id="imagine" width="1200" height="640"></canvas>
+        <input type="text" id="inputId" value="asas" />asdas
+    </center>
+    <script type="text/javascript">
+    var v = [10, 20, 10, 40, 50, 30, 25]
+        $("canvas").on("mousedown", (e) => {
+            if (e.which == 3) {
+            }
+        })
+        $("canvas").on("contextmenu", (e) => {
+            alert("click dr!!!");
+            e.preventDefault();
+        })
+        
+        var canvas = $("canvas")[0]
+        var ctx = canvas.getContext("2d");
+        var W = canvas.width, H = canvas.height;
+        ctx.beginPath();
+        ctx.clearRect(0, 0, W, H)
+        ctx.fillStyle = "blue"
+        ctx.fillRect(0, 0, W, H)
+        var n = v.length
+        let w = W / n, h = H / Math.max.apply(null, v)
+        ctx.beginPath();
+        ctx.lineWidth = 100;
+        ctx.fillStyle = "#00FFFF"
+        ctx.strokeStyle = "black"
+        for (var i = 0; i < n; i++) {
+            wi = w * 0.8
+            hi = h * v[i] * 0.9
+            xi = w * i + 10;
+            yi = H - hi - 10
+            ctx.rect(xi, yi, wi, hi);
+            ctx.stroke();
+            ctx.fill();
+        }
+    </script>
+</body>
+
+</html>

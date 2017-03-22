@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-latest.js"></script>
+</head>
+
+<body>
+    <canvas id="desen" width="800px" height="500px"></canvas>
+    <script>
+        var desenImag = (imagine) => {
+            var canvas = $("#desen")[0];
+            var ctx = canvas.getContext("2d");
+            var W = canvas.width, H = canvas.height;
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, W, H);
+            $("<img></img>").attr("src", imagine).on("load", function() {
+                img = this;
+                ctx.drawImage(img, 0, 0);
+                var info = ctx.getImageData(0, 0, img.width, img.height);
+                var data = info.data;
+                alert(img.width);
+                alert(img.height);
+                for (var x = 0; x < img.width; x++) {
+                    for (var y = 0; y < img.height; y++) {
+                       var i = x * 4 + y * 4 * W
+                       var aux = data[i];
+                       data[i] = data[i + 1];
+                       data[i + 1] = aux;
+                       data[i + 3] = 0.5 * data[i + 3];
+                    }
+                }
+                ctx.putImageData(info, 0, 0);
+            });
+        }
+        desenImag("1.png");
+    </script>
+</body>
+
+</html>

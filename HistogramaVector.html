@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <center>
+            <canvas id = "canvas" width="600px" height="400px"/>
+        </center>
+        <script type="text/javascript">
+            $(function() {
+                var axaXOY = function(canvas, context) {
+                    context.beginPath()
+                    context.lineWidth = 4
+                    context.strokeStyle = "black"
+                    context.moveTo(0,0)
+                    context.lineTo(0, canvas.height)
+                    context.lineTo(canvas.width, canvas.height)
+                    context.stroke()
+                    context.font = "bold 12pt Arial";
+                }
+                
+                var histograma = function(vector) {
+                    let ctx = $("canvas")[0].getContext("2d"), canvas = $("canvas")[0]
+                    let W = canvas.width, H = canvas.height
+                    ctx.beginPath()
+                    ctx.lineWidth = 3
+                    ctx.textAlign = "center";
+                    ctx.font = "bold 12pt Arial";
+                    ctx.strokeStyle = "black"
+                    ctx.fillStyle = "red"
+                    let n = vector.length
+                    let w = W / n, h = H / Math.max.apply(null, vector) * 0.8
+                    for (var i = 0; i < vector.length; i++) {
+                        let hi = vector[i] * h, wi = w * 0.8
+                        let xi = w * (i + 0.1), yi = H - hi - 3
+                        ctx.rect(xi, yi, wi, hi)
+                        ctx.stroke()
+                        ctx.fill()
+                        ctx.fillText(vector[i].toString(), xi + wi / 2, yi - 8)
+                    }
+                    axaXOY(canvas, ctx)
+                }
+                histograma([2,40,40,50])
+            })
+            
+            
+        </script>
+    </body>
+</html>

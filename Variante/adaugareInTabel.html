@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="jquery-latest.js"></script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>
+                Nume
+            </th>
+            <th>
+                Valoare
+            </th>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+    Nume: <input type="text" id="nume" /> Valoare: <input type="text" id="valoare" />
+    <button id="btnAdd">Add</button>
+    <script>
+        var total = 0;
+        $("#btnAdd").on("click", () => {
+            var nume = $("#nume").val();
+            var val = +$("#valoare").val();
+            if (nume == "" || val == ""  ) {
+                alert("Completati toate informatiile");
+            } else
+            if (isNaN(val)) {
+                alert("valoarea trebuie sa fie un numar");
+
+            }
+            else {
+                var trow = $("<tr></tr>");
+                trow.append($("<td></td>").append(nume));
+                trow.append($("<td></td>").append(val.toString()));
+                trow.appendTo("tbody");
+                total = val + total;
+                $("<tr></tr>").append("<td colspan = \"2\" id='idTr'></td>").appendTo("tfoot");
+                $("#idTr").text("Total= " + total);
+                $("#nume").val("");
+                $("#valoare").val("");
+            }
+        })
+    </script>
+</body>
+
+</html>
